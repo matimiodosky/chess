@@ -23,6 +23,7 @@ type PieceColor int
 
 const (
 	PAWN PieceKind = iota
+	ROOK PieceKind = iota
 	KING PieceKind = iota
 )
 
