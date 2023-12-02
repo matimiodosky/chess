@@ -12,7 +12,7 @@ var horizontal = And(
 
 var vertical = And(
 	IsKind(ROOK),
-	//IsVertical,
+	IsVertical,
 	//NoObstacles,  // TODO
 	Or(IsEmpty, IsOpponent),
 )
