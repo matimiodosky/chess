@@ -12,10 +12,22 @@ func NewGame(width int, height int, validators ...Validator) Game {
 
 func (game Game) Move(from Coordinate, to Coordinate) (Game, error) {
 	newBoard, err := game.board.Move(from, to)
+
+	err = runValidators(game.validators, game, from, to)
 	if err != nil {
 		return game, err
 	}
 	return Game{newBoard, game.validators}, nil
+}
+
+func runValidators(validators []Validator, game Game, from Coordinate, to Coordinate) error {
+	for _, validator := range validators {
+		err := validator(game, from, to)
+		if err == nil {
+			return nil
+		}
+	}
+	return InvalidMoveError("Invalid move")
 }
 
 func (game Game) PieceAt(coordinate Coordinate) (Piece, error) {

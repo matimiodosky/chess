@@ -6,7 +6,7 @@ import . "board_game/commons"
 func TestWhiteForwardMovement(t *testing.T) {
 
 	pawn := NewPiece(PAWN, WHITE)
-	game := NewGame(3, 3)
+	game := NewGame(3, 3, PawnValidator)
 	game, err := game.Place(pawn, NewCoordinate(0, 0))
 	if err != nil {
 		t.Error(err)
@@ -21,7 +21,7 @@ func TestWhiteForwardMovement(t *testing.T) {
 func TestBlackForwardMovement(t *testing.T) {
 
 	pawn := NewPiece(PAWN, BLACK)
-	game := NewGame(3, 3)
+	game := NewGame(3, 3, PawnValidator)
 	game, err := game.Place(pawn, NewCoordinate(0, 2))
 	if err != nil {
 		t.Error(err)
@@ -35,7 +35,7 @@ func TestBlackForwardMovement(t *testing.T) {
 func TestWhiteDoubleForwardMoovement(t *testing.T) {
 
 	pawn := NewPiece(PAWN, WHITE)
-	game := NewGame(3, 3)
+	game := NewGame(3, 3, PawnValidator)
 	game, err := game.Place(pawn, NewCoordinate(0, 0))
 	if err != nil {
 		t.Error(err)
@@ -50,7 +50,7 @@ func TestWhiteDoubleForwardMoovement(t *testing.T) {
 func TestBlackDoubleForwardMoovement(t *testing.T) {
 
 	pawn := NewPiece(PAWN, BLACK)
-	game := NewGame(3, 3)
+	game := NewGame(3, 3, PawnValidator)
 	game, err := game.Place(pawn, NewCoordinate(0, 2))
 	if err != nil {
 		t.Error(err)
