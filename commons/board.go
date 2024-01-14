@@ -43,7 +43,7 @@ func (b Board) PieceAt(coordinate Coordinate) (Piece, error) {
 	if piece, ok := b.pieces[coordinate]; ok {
 		return piece, nil
 	}
-	return Piece{}, nil
+	return Piece{}, MissingPieceError
 }
 
 func (b Board) IsEmptyAt(coordinate Coordinate) bool {

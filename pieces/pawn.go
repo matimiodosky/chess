@@ -15,17 +15,17 @@ var forwardMove = And(
 var diagonalMove = And(
 	IsKind(PAWN),
 	IsForward,
-	IsSteps(2),
-	IsEmpty,
-	//IsFirstMove, // TODO
+	IsSteps(1),
+	IsOpponent,
+	IsDiagonal,
 )
 
 var doubleForwardMove = And(
 	IsKind(PAWN),
 	IsForward,
-	IsSteps(1),
-	IsDiagonal,
-	IsOpponent,
+	IsEmpty,
+	IsSteps(2),
+	IsFirstMove,
 )
 
 var PawnValidator = Or(forwardMove, diagonalMove, doubleForwardMove)

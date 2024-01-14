@@ -32,7 +32,7 @@ func TestBlackForwardMovement(t *testing.T) {
 	}
 }
 
-func TestWhiteDoubleForwardMoovement(t *testing.T) {
+func TestWhiteDoubleForwardMovement(t *testing.T) {
 
 	pawn := NewPiece(PAWN, WHITE)
 	game := NewGame(3, 3, PawnValidator)
